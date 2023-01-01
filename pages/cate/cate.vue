@@ -74,7 +74,7 @@ export default {
     //跳转到商品详情页面
     gotoGoodsList(item3) {
       uni.navigateTo({
-        url: '/subpkg/goods_detail/goods_detail?cid=' + item3.cat_id
+        url: '/subpkg/goods_list/goods_list?cid=' + item3.cat_id
       });
     },
     // 跳转到搜索页面

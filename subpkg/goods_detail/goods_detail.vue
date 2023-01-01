@@ -1,5 +1,5 @@
 <template>
-  <view>111</view>
+  <view>goods_detail</view>
 </template>
 
 <script>

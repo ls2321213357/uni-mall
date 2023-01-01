@@ -10,9 +10,6 @@
 <script>
 export default {
   name: 'my-search',
-  data() {
-    return {};
-  },
   props: {
     //可以自定义颜色和圆角弧度
     bgcolor: {

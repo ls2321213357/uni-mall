@@ -4,7 +4,7 @@
   }, {
     "path": "pages/cate/cate",
     "style": {
-      "enablePullDownRefresh": false
+      "enablePullDownRefresh": true
     }
   }, {
     "path": "pages/cart/cart"
@@ -14,27 +14,19 @@
   "subPackages": [{
     "root": "subpkg",
     "pages": [{
-      "path": "goods_detail/goods_detail",
-      "style": {
-        "enablePullDownRefresh": false
-      }
+      "path": "goods_detail/goods_detail"
     }, {
       "path": "goods_list/goods_list",
       "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 150,
+        "backgroundColor": "#F8F8F8",
+        "backgroundTextStyle": "dark"
       }
 
-    }    ,{
-                    "path" : "search/search",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
+    }, {
+      "path": "search/search"
+    }]
   }],
   "tabBar": {
     "selectedColor": "#C00000",

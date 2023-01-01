@@ -115,7 +115,7 @@ export default {
   //设置定位效果为 '吸顶'
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 99;
 }
 // 轮播图样式
 swiper {
