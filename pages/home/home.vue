@@ -1,5 +1,9 @@
 <template>
   <view>
+    <view class="search-box">
+      <!-- 自定义的搜索组件 -->
+      <my-search :bgcolor="'#C00000'" :boxRadius="17" @click="gotoSearch"></my-search>
+    </view>
     <!-- 轮播图部分 -->
     <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
       <swiper-item v-for="item in swiperList" :key="item.goods_id">
@@ -95,12 +99,24 @@ export default {
         });
         this.floorList = result.message;
       }
+    },
+    // 跳转到搜索页面
+    gotoSearch() {
+      uni.navigateTo({
+        url: '/subpkg/search/search'
+      });
     }
   }
 };
 </script>
 
 <style lang="scss">
+.search-box {
+  //设置定位效果为 '吸顶'
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
 // 轮播图样式
 swiper {
   height: 330rpx;

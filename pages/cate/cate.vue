@@ -1,5 +1,6 @@
 <template>
   <view>
+    <my-search @click="gotoSearch"></my-search>
     <view class="scroll-view-container">
       <!-- 左侧的滚动视图区域 -->
       <scroll-view scroll-y class="left-scroll-view" :style="{ height: wh + 'px' }">
@@ -48,7 +49,7 @@ export default {
     //获取当前系统的信息
     const sysInfo = uni.getSystemInfoSync();
     //为wh窗口可用高度动态赋值
-    this.wh = sysInfo.windowHeight;
+    this.wh = sysInfo.windowHeight - 50;
     //获取分类信息列表
     this.getCateList();
   },
@@ -70,10 +71,16 @@ export default {
       //让scrollTop的值在0-1之间切换
       this.scrollTop = this.scrollTop === 0 ? 1 : 0;
     },
-    //调转到商品详情页面
+    //跳转到商品详情页面
     gotoGoodsList(item3) {
       uni.navigateTo({
         url: '/subpkg/goods_detail/goods_detail?cid=' + item3.cat_id
+      });
+    },
+    // 跳转到搜索页面
+    gotoSearch() {
+      uni.navigateTo({
+        url: '/subpkg/search/search'
       });
     }
   }

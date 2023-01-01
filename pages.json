@@ -18,8 +18,15 @@
       "style": {
         "enablePullDownRefresh": false
       }
+    }, {
+      "path": "goods_list/goods_list",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+
     }    ,{
-                    "path" : "goods_list/goods_list",
+                    "path" : "search/search",
                     "style" :                                                                                    
                 {
                     "navigationBarTitleText": "",
@@ -57,6 +64,7 @@
       }
     ]
   },
+
   "globalStyle": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "阿硕小卖铺",

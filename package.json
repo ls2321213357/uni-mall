@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@escook/request-miniprogram": "^0.2.1"
+    "@escook/request-miniprogram": "^0.2.1",
+    "@vant/weapp": "^1.10.10"
   }
 }
