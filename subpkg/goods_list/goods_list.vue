@@ -11,7 +11,7 @@ export default {
       //商品请求参数对象
       queryInfo: {
         //查询关键词
-        keyword: '',
+        query: '',
         //商品id
         cid: 5,
         //页码
@@ -31,11 +31,11 @@ export default {
     //获取商品列表
     async getGoodsList(cb) {
       this.isLoading = true;
-      const { data: result } = await uni.$http.get('/api/public/v1/goods/search');
+      const { data: result } = await uni.$http.get('/api/public/v1/goods/search', this.queryInfo);
       this.isLoading = false;
       //只要数据请求完毕就执行cb这个自定的函数
       cb && cb();
-      if (result.meta.status !== 200) {
+      if (result.meta.status !== 200 || result.message.total === 0) {
         return uni.showToast({
           icon: 'error',
           title: '抱歉暂无该商品'
@@ -64,7 +64,7 @@ export default {
     this.getGoodsList();
   },
   onLoad(options) {
-    this.queryInfo.keyword = options.query || '';
+    this.queryInfo.query = options.query || '';
     this.queryInfo.cid = options.cid || '';
     this.getGoodsList();
   },
