@@ -1,6 +1,7 @@
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
+//引入请求方法
 import {
   $http
 } from '@escook/request-miniprogram'
@@ -19,17 +20,19 @@ $http.afterRequest = function(options) {
 }
 Vue.config.productionTip = false
 //全局封装展示消息提示方法
-uni.$showMsg = function(title = '数据加载失败', duration = 1500) {
+uni.$showMsg = function(title = '数据加载失败', icon = 'error', duration = 1500) {
   uni.showToast({
     title,
     duration,
-    icon: 'error'
+    icon
   })
 }
+//引入store
+import store from './store/store.js'
 App.mpType = 'app'
-
 const app = new Vue({
-  ...App
+  ...App,
+  store
 })
 app.$mount()
 // #endif

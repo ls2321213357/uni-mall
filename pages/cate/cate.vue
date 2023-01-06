@@ -30,7 +30,9 @@
 </template>
 
 <script>
+import badgeMix from '@/mixins/tabbar-badge.js';
 export default {
+  mixins: [badgeMix],
   data() {
     return {
       // 动态计算窗口的剩余高度

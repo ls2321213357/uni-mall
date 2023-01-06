@@ -38,19 +38,19 @@
       },
       {
         "pagePath": "pages/cate/cate",
-        "text": "首页",
+        "text": "分类",
         "iconPath": "static/tab_icons/cate.png",
         "selectedIconPath": "static/tab_icons/cate-active.png"
       },
       {
         "pagePath": "pages/cart/cart",
-        "text": "首页",
+        "text": "购物车",
         "iconPath": "static/tab_icons/cart.png",
         "selectedIconPath": "static/tab_icons/cart-active.png"
       },
       {
         "pagePath": "pages/my/my",
-        "text": "首页",
+        "text": "我的",
         "iconPath": "static/tab_icons/my.png",
         "selectedIconPath": "static/tab_icons/my-active.png"
       }

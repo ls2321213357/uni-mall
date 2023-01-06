@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations, mapGetters } from 'vuex';
 export default {
   data() {
     return {
@@ -42,7 +43,7 @@ export default {
         {
           icon: 'cart',
           text: '购物车',
-          info: 2
+          info: 0
         }
       ],
       //右侧按钮
@@ -80,7 +81,6 @@ export default {
     },
     // 左侧点击按钮
     onClick(e) {
-      console.log(e);
       if (e.content.text === '购物车') {
         uni.switchTab({
           url: '/pages/cart/cart'
@@ -91,16 +91,45 @@ export default {
     },
     //右侧点击按钮
     buttonClick(e) {
-      console.log(e);
-    }
+      const { goods_id, goods_name, goods_price, goods_small_logo } = this.goodDetailInfo;
+      if (e.content.text === '加入购物车') {
+        //定义一个商品对象
+        const goods = {
+          goods_id,
+          goods_name,
+          goods_price,
+          goods_small_logo,
+          goods_count: 1,
+          goods_state: true
+        };
+        this.addToCart(goods);
+      }
+    },
+    ...mapMutations('cart', ['addToCart'])
   },
   computed: {
     swiperList() {
       return this.goodDetailInfo.pics;
-    }
+    },
+    // ...mapState('模块的名称', ['要映射的数据名称1', '要映射的数据名称2'])
+    ...mapState('cart', ['cart']),
+    ...mapGetters('cart', ['cartTotal'])
   },
   onLoad(optaion) {
     this.getDetaiInfo(optaion.goods_id);
+  },
+  watch: {
+    //监听购物车商品数量,给徽标赋值
+
+    cartTotal: {
+      handler(newVal) {
+        const findResult = this.options.find(item => item.text === '购物车');
+        if (findResult) {
+          findResult.info = newVal;
+        }
+      },
+      immediate: true
+    }
   }
 };
 </script>

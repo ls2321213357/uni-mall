@@ -1,6 +1,6 @@
 <template>
   <view class="goods-list">
-    <view v-for="(good, index) in goodsList" :key="index" @click="gotoDetail(good)"><my-goods :good="good"></my-goods></view>
+    <view v-for="(goods, index) in goodsList" :key="index" @click="gotoDetail(goods)"><my-goods :goods="goods" :showRadio="false"></my-goods></view>
   </view>
 </template>
 
