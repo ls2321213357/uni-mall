@@ -13,6 +13,12 @@ $http.beforeRequest = function(options) {
   uni.showLoading({
     title: '加载中......'
   })
+  if (options.url.indexOf('/my/') !== -1) {
+    //为请求头添加身份认证字段
+    options.header = {
+      Authorization: store.state.user.token,
+    }
+  }
 }
 //响应拦截器
 $http.afterRequest = function(options) {

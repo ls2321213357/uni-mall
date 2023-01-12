@@ -34,10 +34,7 @@ export default {
     ...mapMutations('user', ['updateAddress']),
     async chooseAddress() {
       const [err, succ] = await uni.chooseAddress().catch(err => err);
-      console.log(err);
-      console.log(succ);
       if (err === null && succ.errMsg === 'chooseAddress:ok') {
-        // this.address = succ
         this.updateAddress(succ);
       }
 
@@ -55,9 +52,6 @@ export default {
       });
 
       if (err2) return;
-
-      console.log(confirmResult);
-
       if (confirmResult.cancel) return uni.$showMsg('您取消了地址授权！');
       if (confirmResult.confirm)
         return uni.openSetting({
